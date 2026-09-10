@@ -1,0 +1,54 @@
+# ============================================================================
+# SENTINELGRAPH - MINIMAL CONFIGURATION
+# ============================================================================
+# We'll expand this as we build each component
+
+# ----------------------------------------------------------------------------
+# DATA GENERATION - Start here first
+# ----------------------------------------------------------------------------
+data:
+  synthetic:
+    num_transactions: 100000  # Start small, scale to 100M later
+    fraud_rate: 0.02          # 2% fraud rate
+    seed: 42
+  
+  # Paths (will create these as we go)
+  raw_data_path: "data/raw/transactions.parquet"
+  processed_data_path: "data/processed/features.parquet"
+  train_test_split: 0.8
+
+# ----------------------------------------------------------------------------
+# MODEL - XGBoost Configuration (add when we build the trainer)
+# ----------------------------------------------------------------------------
+model:
+  name: "fraud_detector"
+  params:
+    max_depth: 6
+    learning_rate: 0.1
+    n_estimators: 100
+    scale_pos_weight: 10  # Handle class imbalance
+
+# ----------------------------------------------------------------------------
+# THRESHOLDS - Fraud scoring (we'll tune these later)
+# ----------------------------------------------------------------------------
+thresholds:
+  high_risk: 0.8
+  medium_risk: 0.5
+  low_risk: 0.2
+
+# ----------------------------------------------------------------------------
+# AGENTS - LangGraph system (will expand when we build agents)
+# ----------------------------------------------------------------------------
+agents:
+  enabled: true
+  max_iterations: 5
+
+# ----------------------------------------------------------------------------
+# FEATURE STORE - Will add detailed config when implementing
+# ----------------------------------------------------------------------------
+feature_store:
+  online_store:
+    enabled: true
+  cache:
+    enabled: true
+    ttl_seconds: 300

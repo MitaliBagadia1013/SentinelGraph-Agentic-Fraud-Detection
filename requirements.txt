@@ -1,0 +1,42 @@
+# ============================================================
+# SentinelGraph - Agentic Fraud Detection System
+# Dependencies
+# ============================================================
+
+# --- Graph Database (Layer 0) ---
+neo4j>=5.15.0                  # Official Neo4j Python driver (Bolt protocol)
+
+# --- LLM / Agents (Layer 3) ---
+openai>=1.30.0                 # OpenAI API client
+langgraph>=0.1.0               # LangGraph agent orchestration
+langchain>=0.2.0               # LangChain core (LangGraph dependency)
+langchain-openai>=0.1.0        # LangChain OpenAI integration
+
+# --- ML Model (Layer 2) ---
+xgboost>=2.0.0                 # XGBoost gradient boosting
+scikit-learn>=1.4.0            # Preprocessing, metrics
+numpy>=1.26.0                  # Numerical computing
+pandas>=2.2.0                  # DataFrames
+
+# --- Data ---
+pyarrow>=15.0.0                # Parquet file support
+fastparquet>=2024.2.0          # Alternative parquet engine
+kaggle>=1.6.0                  # IEEE-CIS dataset download
+
+# --- Feature Store (Layer 2 support) ---
+redis>=5.0.0                   # Hot feature store
+psycopg2-binary>=2.9.9         # PostgreSQL feature store
+scipy>=1.12.0                  # KS-test for drift monitoring
+joblib>=1.3.0                  # Model serialization
+
+# --- Human Review UI (Layer 4) ---
+flask>=3.0.0                   # HITL review dashboard
+
+# --- Config ---
+pyyaml>=6.0.1                  # YAML config loading
+python-dotenv>=1.0.1           # .env file support
+
+# --- Testing ---
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
+pytest-mock>=3.14.0
